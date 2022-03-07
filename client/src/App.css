@@ -1,7 +1,5 @@
 .App {
   background-color: white;
-  width: 50%;
-  height: 100vh;
   display: inline-block;
   box-sizing: border-box;
   padding: 20px
@@ -10,7 +8,7 @@
 body {
   color: black;
   font-family: calibri, arial;
-  background-color: rgb(34, 34, 43);
+  background-color: white;
   margin: 0px;
   
 }
@@ -21,4 +19,8 @@ h1 {
 
 .inputs {
   margin-bottom: 25px;
+}
+
+img {
+  margin-top: 10px;
 }
