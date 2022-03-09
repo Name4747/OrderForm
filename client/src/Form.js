@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
 
-import NotFound from './notfound.png'
-import Yellow from './yellow.png'
-import Teal from './teal.png'
-import BlueClear from './blue_clear.png'
-import OrangeShell from './orange_shell.png'
-import Black from './black.png'
+import notfound from './notfound.png'
+import yellow from './yellow.png'
+import teal from './teal.png'
+import blue_clear from './blue_clear.png'
+import orange_shell from './orange_shell.png'
+import black from './black.png'
 
 const Form = () => {
 
@@ -17,9 +17,42 @@ const Form = () => {
     const [email,setEmail] = useState('')
     const [fullName,setFullName] = useState('')
     const [phone,setPhone] = useState('')
+    
+    const mats = [
+        {
+            option: "Orange Shell",
+            filename: orange_shell
+        },
+        {
+            option: "Blue Clear",
+            filename: blue_clear
+        },
+        {
+            option: "Black",
+            filename: black
+        },
+        {
+            option: "Teal",
+            filename: teal
+        },
+        {
+            option: "Yellow",
+            filename: yellow
+        }
+    ]
 
-    function getImage(mat) {
-        switch(mat) {
+    function getImage(selected) {
+
+        for(let i = 0; i < mats.length; i++) {
+            if (selected === mats[i].option) {
+                return mats[i].filename
+            }
+            else {
+                return notfound
+            }
+        }
+
+        /*switch(mat) {
             case 'Orange Shell' :
                 return OrangeShell;
             case 'Blue Clear' :
@@ -32,7 +65,7 @@ const Form = () => {
                 return Yellow;
             default :
                 return NotFound;
-        }
+        }*/
     }
 
     const handleSubmit = () => {
