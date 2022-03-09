@@ -1,10 +1,12 @@
 import React,{useState} from 'react'
+
+import NotFound from './notfound.png'
 import Yellow from './yellow.png'
 import Teal from './teal.png'
 import BlueClear from './blue_clear.png'
 import OrangeShell from './orange_shell.png'
 import Black from './black.png'
-    
+
 const Form = () => {
 
     const [type,setType] = useState('Necklace')
@@ -16,25 +18,20 @@ const Form = () => {
     const [fullName,setFullName] = useState('')
     const [phone,setPhone] = useState('')
 
-    function getImage(x) {
-        switch(x) {
+    function getImage(mat) {
+        switch(mat) {
             case 'Orange Shell' :
                 return OrangeShell;
-                
             case 'Blue Clear' :
                 return BlueClear;
-                
             case 'Black' :
                 return Black;
-                
             case 'Teal' :
                 return Teal;
-                
             case 'Yellow' :
                 return Yellow;
             default :
-                return "error";
-                
+                return NotFound;
         }
     }
 
