@@ -42,16 +42,14 @@ const Form = () => {
     ]
 
     function getImage(selected) {
-
         for(let i = 0; i < mats.length; i++) {
+            //debugger
             if (selected === mats[i].option) {
                 return mats[i].filename
             }
-            else {
-                return notfound
-            }
+            
         }
-
+        return notfound
         /*switch(mat) {
             case 'Orange Shell' :
                 return OrangeShell;
