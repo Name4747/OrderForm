@@ -43,27 +43,11 @@ const Form = () => {
 
     function getImage(selected) {
         for(let i = 0; i < mats.length; i++) {
-            //debugger
             if (selected === mats[i].option) {
                 return mats[i].filename
             }
-            
         }
         return notfound
-        /*switch(mat) {
-            case 'Orange Shell' :
-                return OrangeShell;
-            case 'Blue Clear' :
-                return BlueClear;
-            case 'Black' :
-                return Black;
-            case 'Teal' :
-                return Teal;
-            case 'Yellow' :
-                return Yellow;
-            default :
-                return NotFound;
-        }*/
     }
 
     const handleSubmit = () => {
@@ -118,11 +102,7 @@ const Form = () => {
             <div className="inputs">
                 <label>Material 1*</label><br/>
                 <select required={true} onChange={(e) => {setMat1(e.target.value)}}>
-                    <option>Orange Shell</option>
-                    <option>Blue Clear</option>
-                    <option>Black</option>
-                    <option>Teal</option>
-                    <option>Yellow</option>
+                    {mats.map((mat) => <option>{mat.option}</option>)}
                 </select>
                 <br/>
                 <img src={getImage(mat1)} alt="Material 1" width="128px"></img>
@@ -131,11 +111,7 @@ const Form = () => {
             <div className="inputs">
                 <label>Material 2*</label><br/>
                 <select required={true} onChange={(e) => {setMat2(e.target.value)}}>
-                    <option>Orange Shell</option>
-                    <option>Blue Clear</option>
-                    <option>Black</option>
-                    <option>Teal</option>
-                    <option>Yellow</option>
+                    {mats.map((mat) => <option>{mat.option}</option>)}
                 </select>
                 <br/>
                 <img src={getImage(mat2)} alt="Material 1" width="128px"></img>
@@ -144,11 +120,7 @@ const Form = () => {
             <div className="inputs">
                 <label>Material 3*</label><br/>
                 <select required={true} onChange={(e) => {setMat3(e.target.value)}}>
-                    <option>Orange Shell</option>
-                    <option>Blue Clear</option>
-                    <option>Black</option>
-                    <option>Teal</option>
-                    <option>Yellow</option>
+                    {mats.map((mat) => <option>{mat.option}</option>)} 
                 </select>
                 <br/>
                 <img src={getImage(mat3)} alt="Material 1" width="128px"></img>
