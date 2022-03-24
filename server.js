@@ -1,9 +1,10 @@
 const express = require('express')
 const app = new express()
-const db = require('better-sqlite3')('orderform.db')
+//const db = require('better-sqlite3')('orderform.db')
+const port = process.env.port || 8080
 
-app.use(express.static('/client/build'))
 app.use(express.json())
+app.use(express.static('/client/build'))
 
 app.post('/order', (req, res) => {
     const {type,style,mat1,mat2,mat3,email,fullName,phone} = req.body
@@ -12,6 +13,10 @@ app.post('/order', (req, res) => {
     const result = sql.run(type,style,mat1,mat2,mat3,email,fullName,phone)
 })
 
-app.listen(8080, () => {
+app.get('/hello',(req,res) => {
+    res.send("Hallo, World!")
+})
+
+app.listen(port, () => {
     console.info("server started")
 })
