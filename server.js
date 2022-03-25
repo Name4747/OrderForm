@@ -1,10 +1,11 @@
 const express = require('express')
 const app = new express()
 //const db = require('better-sqlite3')('orderform.db')
-const port = process.env.port || 8080
+const port = process.env.PORT || 8080
+const path = require('path')
 
 app.use(express.json())
-app.use(express.static('/client/build'))
+app.use(express.static(path.join(__dirname,'/client/build')))
 
 app.post('/order', (req, res) => {
     const {type,style,mat1,mat2,mat3,email,fullName,phone} = req.body
