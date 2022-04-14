@@ -1,11 +1,10 @@
 import React,{useState} from 'react'
-
-import notfound from './notfound.png'
-import yellow from './yellow.png'
-import teal from './teal.png'
-import blue_clear from './blue_clear.png'
-import orange_shell from './orange_shell.png'
-import black from './black.png'
+import notfound from './images/notfound.png'
+import yellow from './images/yellow.png'
+import teal from './images/teal.png'
+import blue_clear from './images/blue_clear.png'
+import orange_shell from './images/orange_shell.png'
+import black from './images/black.png'
 
 const Form = () => {
 
