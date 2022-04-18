@@ -39,7 +39,7 @@ const Form = () => {
             filename: yellow
         }
     ]
-
+    
     function getImage(selected) {
         for(let i = 0; i < mats.length; i++) {
             if (selected === mats[i].option) {

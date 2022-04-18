@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Staffview from './Staffview'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<App />} /> 
+        <Route path="staff" element={<Staffview />} />
+      </Routes>
+    </div>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
