@@ -1,7 +1,7 @@
 const express = require('express')
 const app = new express()
 const {CosmosClient} = require('@azure/cosmos')
-const dbKey = 'AccountEndpoint=https://beadsrhapsody-db.documents.azure.com:443/;AccountKey=rLCF853XHXgwXZK5uB80r9AEZo4A5OhErtZrzrAzugZwvoSYC72ePnkYywAjk7TGjKtp6z9G7EH2n2LMQapQEg==;'
+const dbKey = ''
 const port = process.env.PORT || 8080
 const path = require('path')
 const client = new CosmosClient(dbKey)
@@ -35,18 +35,25 @@ app.post('/order', (req, res) => {
     container.items.create(data)
 })
 
-/*app.get('/hello/:name',async (req,res) => {
-    const data = {
-        id: Date.now().toLocaleString(),
-        score: "1",//Math.floor(Math.random * 100),
-        name: req.params.name
+let secretPassword = "password"
+let answer;
+
+app.post('/answer', (req,res) => {
+    const {par} = req.body
+    answer = par
+})
+
+app.get('/login',async (req,res) => {
+    if(answer == secretPassword) {
+        const { resources: items } = await container.items
+            .query("SELECT * FROM c")
+            .fetchAll();
+        res.json(items)
     }
-    container.items.create(data)
-        .catch((err) => {console.error(err)})
-    const {resources: hellos} = await container.items.query("SELECT * FROM c")
-        .fetchAll()
-    res.send(JSON.stringify(hellos))
-})*/
+    else {
+        res.json(null)
+    }
+})
 
 app.listen(port, () => {
     console.info("server started")

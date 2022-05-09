@@ -19,22 +19,27 @@ const Form = () => {
     
     const mats = [
         {
+            key: "1",
             option: "Orange Shell",
             filename: orange_shell
         },
         {
+            key: "2",
             option: "Blue Clear",
             filename: blue_clear
         },
         {
+            key: "3",
             option: "Black",
             filename: black
         },
         {
+            key: "4",
             option: "Teal",
             filename: teal
         },
         {
+            key: "5",
             option: "Yellow",
             filename: yellow
         }
@@ -101,7 +106,7 @@ const Form = () => {
             <div className="inputs">
                 <label>Material 1*</label><br/>
                 <select required={true} onChange={(e) => {setMat1(e.target.value)}}>
-                    {mats.map((mat) => <option>{mat.option}</option>)}
+                    {mats.map((mat) => <option key={mat.key}>{mat.option}</option>)}
                 </select>
                 <br/>
                 <img src={getImage(mat1)} alt="Material 1" width="128px"></img>
@@ -110,7 +115,7 @@ const Form = () => {
             <div className="inputs">
                 <label>Material 2*</label><br/>
                 <select required={true} onChange={(e) => {setMat2(e.target.value)}}>
-                    {mats.map((mat) => <option>{mat.option}</option>)}
+                    {mats.map((mat) => <option key={mat.key}>{mat.option}</option>)}
                 </select>
                 <br/>
                 <img src={getImage(mat2)} alt="Material 1" width="128px"></img>
@@ -119,7 +124,7 @@ const Form = () => {
             <div className="inputs">
                 <label>Material 3*</label><br/>
                 <select required={true} onChange={(e) => {setMat3(e.target.value)}}>
-                    {mats.map((mat) => <option>{mat.option}</option>)} 
+                    {mats.map((mat) => <option key={mat.key}>{mat.option}</option>)} 
                 </select>
                 <br/>
                 <img src={getImage(mat3)} alt="Material 1" width="128px"></img>
