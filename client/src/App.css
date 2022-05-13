@@ -2,15 +2,30 @@
   background-color: white;
   display: inline-block;
   box-sizing: border-box;
-  padding: 20px
+  padding: 20px;
+  margin-bottom: 100px;
+  min-height: calc(100vh - 200px);
+  /*200px, footer height + bottom margin of last element in app*/
 }
 
 body {
   color: black;
   font-family: calibri, arial;
   background-color: white;
-  margin: 0px;
-  
+  margin: 0;
+}
+
+footer {
+  background-color: rgb(32, 35, 41);
+  color: white;
+  height: 100px;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: right;
+}
+
+.link:visited,.link:hover,.link:link {
+  color: white;
 }
 
 h1 {
@@ -23,4 +38,9 @@ h1 {
 
 img {
   margin-top: 10px;
+}
+
+.datagrid {
+  height: 650px;
+  width: 700px;
 }

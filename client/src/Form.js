@@ -1,10 +1,11 @@
 import React,{useState} from 'react'
-import Yellow from './yellow.png'
-import Teal from './teal.png'
-import BlueClear from './blue_clear.png'
-import OrangeShell from './orange_shell.png'
-import Black from './black.png'
-    
+import notfound from './images/notfound.png'
+import yellow from './images/yellow.png'
+import teal from './images/teal.png'
+import blue_clear from './images/blue_clear.png'
+import orange_shell from './images/orange_shell.png'
+import black from './images/black.png'
+
 const Form = () => {
 
     const [type,setType] = useState('Necklace')
@@ -15,27 +16,42 @@ const Form = () => {
     const [email,setEmail] = useState('')
     const [fullName,setFullName] = useState('')
     const [phone,setPhone] = useState('')
-
-    function getImage(x) {
-        switch(x) {
-            case 'Orange Shell' :
-                return OrangeShell;
-                
-            case 'Blue Clear' :
-                return BlueClear;
-                
-            case 'Black' :
-                return Black;
-                
-            case 'Teal' :
-                return Teal;
-                
-            case 'Yellow' :
-                return Yellow;
-            default :
-                return "error";
-                
+    
+    const mats = [
+        {
+            key: "1",
+            option: "Orange Shell",
+            filename: orange_shell
+        },
+        {
+            key: "2",
+            option: "Blue Clear",
+            filename: blue_clear
+        },
+        {
+            key: "3",
+            option: "Black",
+            filename: black
+        },
+        {
+            key: "4",
+            option: "Teal",
+            filename: teal
+        },
+        {
+            key: "5",
+            option: "Yellow",
+            filename: yellow
         }
+    ]
+    
+    function getImage(selected) {
+        for(let i = 0; i < mats.length; i++) {
+            if (selected === mats[i].option) {
+                return mats[i].filename
+            }
+        }
+        return notfound
     }
 
     const handleSubmit = () => {
@@ -90,11 +106,7 @@ const Form = () => {
             <div className="inputs">
                 <label>Material 1*</label><br/>
                 <select required={true} onChange={(e) => {setMat1(e.target.value)}}>
-                    <option>Orange Shell</option>
-                    <option>Blue Clear</option>
-                    <option>Black</option>
-                    <option>Teal</option>
-                    <option>Yellow</option>
+                    {mats.map((mat) => <option key={mat.key}>{mat.option}</option>)}
                 </select>
                 <br/>
                 <img src={getImage(mat1)} alt="Material 1" width="128px"></img>
@@ -103,11 +115,7 @@ const Form = () => {
             <div className="inputs">
                 <label>Material 2*</label><br/>
                 <select required={true} onChange={(e) => {setMat2(e.target.value)}}>
-                    <option>Orange Shell</option>
-                    <option>Blue Clear</option>
-                    <option>Black</option>
-                    <option>Teal</option>
-                    <option>Yellow</option>
+                    {mats.map((mat) => <option key={mat.key}>{mat.option}</option>)}
                 </select>
                 <br/>
                 <img src={getImage(mat2)} alt="Material 1" width="128px"></img>
@@ -116,11 +124,7 @@ const Form = () => {
             <div className="inputs">
                 <label>Material 3*</label><br/>
                 <select required={true} onChange={(e) => {setMat3(e.target.value)}}>
-                    <option>Orange Shell</option>
-                    <option>Blue Clear</option>
-                    <option>Black</option>
-                    <option>Teal</option>
-                    <option>Yellow</option>
+                    {mats.map((mat) => <option key={mat.key}>{mat.option}</option>)} 
                 </select>
                 <br/>
                 <img src={getImage(mat3)} alt="Material 1" width="128px"></img>
