@@ -1,4 +1,5 @@
-import * as React from 'react';
+//import * as React from 'react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -13,14 +14,14 @@ function isOverflown(element) {
   );
 }
 
-const GridCellExpand = React.memo(function GridCellExpand(props) {
+const GridCellExpand = memo(function GridCellExpand(props) {
   const { width, value } = props;
-  const wrapper = React.useRef(null);
-  const cellDiv = React.useRef(null);
-  const cellValue = React.useRef(null);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [showFullCell, setShowFullCell] = React.useState(false);
-  const [showPopper, setShowPopper] = React.useState(false);
+  const wrapper = useRef(null);
+  const cellDiv = useRef(null);
+  const cellValue = useRef(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [showFullCell, setShowFullCell] = useState(false);
+  const [showPopper, setShowPopper] = useState(false);
 
   const handleMouseEnter = () => {
     const isCurrentlyOverflown = isOverflown(cellValue.current);
@@ -33,7 +34,7 @@ const GridCellExpand = React.memo(function GridCellExpand(props) {
     setShowFullCell(false);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!showFullCell) {
       return undefined;
     }
@@ -120,7 +121,7 @@ renderCellExpand.propTypes = {
 };
 
 export default function RenderExpandCellGrid({rows, columns}) {
-  const [pageSize, setPageSize] = React.useState(10);
+  const [pageSize, setPageSize] = useState(10);
   const set = columns.map(c => {
     return {...c, renderCell: renderCellExpand}
   })
