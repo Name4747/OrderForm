@@ -1,7 +1,7 @@
 const express = require('express')
 const app = new express()
 const {CosmosClient} = require('@azure/cosmos')
-const dbKey = ''
+const dbKey = 'AccountEndpoint=https://beadsrhapsody-db.documents.azure.com:443/;AccountKey=advQDMy1kmJYGsqQvyCuI08qhOIEG0lo0l9Ps6OfGi6ZYqr0yWdkvDygtvgMf28Ndb1yuffglOYq1jp5yU63Zg==;'
 const port = process.env.PORT || 8080
 const path = require('path')
 const client = new CosmosClient(dbKey)
